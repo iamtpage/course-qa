@@ -1,0 +1,19 @@
+h1
+{
+    padding-left: 20px;
+}
+
+/* give the course buttons some room */
+.btn-group {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.col-xs-3 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.col-md-11 {
+    padding-top: 40px;
+}
