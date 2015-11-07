@@ -17,10 +17,11 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
     
-    <h1>Ask a Question</h1>
-    
+    <div class="row">
+        <input class="col-md-1" type="image" src="/images/keyboard-backspace.png" onclick="goBack()" />
+        <h1 class="col-md-8">Ask a Question</h1>
+    </div>
 
-    
 </head>
     
 <body>
@@ -68,3 +69,9 @@
 
 </body>    
 </html>
+
+<script type="text/javascript">
+    function goBack () {
+        window.history.back();
+    }
+</script>
