@@ -38,7 +38,15 @@ h2 {
 
 .header {
 	color: grey;
-	padding: 0px 0px 32px 32px;
+	padding: 0px 0px 0px 32px;
+}
+
+.subtitle {
+	color: grey;
+	font-weight: 300;
+	font-size: 16px;
+	padding-left: 32px;
+	padding-bottom: 32px;	
 }
 
 .subject {
