@@ -1,3 +1,54 @@
-#ask-btn {
-	background: green;
+html body {
+	width: 100%;
+}
+
+a:hover {
+	text-decoration: none;
+}
+.page-portal {
+	width: 80%;
+	height: 300px;
+	margin: 32px auto 0px auto;
+	border-radius: 20px;
+	box-shadow: 0 0 16px grey;
+}
+
+.icon {
+	text-align: center;
+}
+
+.portal-text {
+	font-size: 50px;
+	color: white;
+	text-align: center;	
+}
+
+#ask-icon {
+	width: 30%;
+	height: 115px;
+	margin: 40px;
+}
+
+#search-icon {
+	width: 30%;
+	height: 115px;	
+	margin: 40px;
+}
+
+#ask {
+	background: #85E085;
+	transition: background .7s ease-out;
+}
+
+#search {
+	background: #6699FF;
+	transition: background .7s ease-out;
+}
+
+#ask:hover {
+	background: #4AD14A;
+}
+
+#search:hover {
+	background: #1C68FF;
 }
