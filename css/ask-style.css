@@ -7,6 +7,15 @@ h2 {
 	font-weight: 200;
 }
 
+.back-icon {
+	border-radius: 50%;
+}
+
+.back-icon:hover {
+	background: rgba(0, 0, 0, .5);
+	transition: background .3s ease-in;
+}
+
 .navbar {
 	background-color: #85E085;
 	border: none;

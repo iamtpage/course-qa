@@ -12,6 +12,15 @@ h2 {
 	border: none;
 }
 
+.back-icon {
+	border-radius: 50%;
+}
+
+.back-icon:hover {
+	background: rgba(0, 0, 0, .5);
+	transition: background .3s ease-in;
+}
+
 .card {
 	background-color: white;
 	width: 80%;
