@@ -1,0 +1,70 @@
+body {
+	background-color: #AEAEAE;
+}
+
+h2 {
+	font-size: 45px;
+	font-weight: 200;
+}
+
+h3 {
+	font-size: 32px;
+	font-weight: 200;	
+}
+
+p {
+	font-size: 16px;
+}
+
+.navbar {
+	background-color: #AEAEAE;
+	border: none;
+}
+
+.back-icon {
+	border-radius: 50%;
+}
+
+.back-icon:hover {
+	background: rgba(0, 0, 0, .5);
+	transition: background .3s ease-in;
+}
+
+.card {
+	background-color: white;
+	width: 80%;
+	margin: 0px auto;
+	padding: 8px 32px 32px 32px;
+	box-shadow: 0 0 16px grey;
+	margin-top: 96px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.header {
+	color: grey;
+	padding: 0px 0px 0px 32px;
+}
+
+.answer-header {
+	color: grey;
+	margin: 0px 0px 8px 16px;
+}
+
+.subject {
+	margin: 0px 0px 8px 0px;
+	text-align: center;
+}
+
+.content {
+	margin: 0px 0px 8px 0px;
+}
+
+.submit-button {
+	padding-top: 16px;
+	text-align: center;
+}
