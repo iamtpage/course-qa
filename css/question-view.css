@@ -1,5 +1,5 @@
 body {
-	background-color: #6699FF;
+	background-color: #AEAEAE;
 }
 
 h2 {
@@ -7,8 +7,17 @@ h2 {
 	font-weight: 200;
 }
 
+h3 {
+	font-size: 32px;
+	font-weight: 200;	
+}
+
+p {
+	font-size: 16px;
+}
+
 .navbar {
-	background-color: #6699FF;
+	background-color: #AEAEAE;
 	border: none;
 }
 
@@ -38,7 +47,12 @@ h2 {
 
 .header {
 	color: grey;
-	padding: 0px 0px 32px 32px;
+	padding: 0px 0px 0px 32px;
+}
+
+.answer-header {
+	color: grey;
+	margin: 0px 0px 8px 16px;
 }
 
 .subject {
