@@ -1,26 +1,45 @@
 <?php
-    require ('dataaccess.php');			// load the file with the class
-    $datalayer = new data();			// creates an object from data class, which also creates the database connection.
+    
+    // load the file with the class
+    require ('dataaccess.php');
 
-    $question_arg = $_POST['question'];		// Get from POST parameters, the value of the variable 'name'
+    // creates an object from data class, which also creates the database connection.
+    $datalayer = new data();		
+
+    // Get from POST parameters, the value of the variable 'keywords' and 'category' from search.html
+    $keyowrds_arg = $_POST['keywords'];
     $category_arg = $_POST['category'];
 	
-    $status = $datalayer->search_question($question_arg, $category_arg);		// Call search function.
+    // Call search function.
+    $status = $datalayer->search_question($keywords_arg, $category_arg);
 	
-    if ($status != false) {
-        echo "<table border='1'>";            // creates a table for the results
+    //if successful
+    if ($status != false) 
+    {
+        
+        // creates a table for the results
+        echo "<table border='1'>";            
         echo "    <tr>";
         echo "        <th> Name </th>";
         echo "        <th> Number </th>";
         echo "    </tr>";
-                                                    // creates a row for each result
-        for ( $n=0; $n < count($status); $n++) {
+        
+        // creates a row for each result
+        for ( $n=0; $n < count($status); $n++) 
+        {
+            //Print question out in table
             echo "    <tr>";
-            echo "        <th> " . $status[$n][0] . " </th>";        // Prints row n, column 0; which is the name
+            echo "        <th> " . $status[$n][0] . " </th>";
             echo "    </tr>";
         }
+
+        //close table
         echo ">/table>";
-    } else {
+    } 
+
+    //Failure
+    else 
+    {
         echo "<p> There was a problem with the database. Try later. </p>";
     }
 ?>

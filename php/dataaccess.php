@@ -4,12 +4,16 @@
     define("DB_PASSWORD","mypassword");			// password
     define("DB_NAME","mydatabase");				// database's name
 	
-    class data {
-        private $conn;			// database connection object
+    class data 
+    {
+     
+        // database connection object
+        private $conn;
         
         function __construct()
         {
-            $this->conn = new mysqli(DB_SERVER,DB_USER, DB_PASSWORD,DB_NAME) or die("There was a problem with the database connection");			// database connection creation
+            // database connection creation
+            $this->conn = new mysqli(DB_SERVER,DB_USER, DB_PASSWORD,DB_NAME) or die("There was a problem with the database connection");
         }
 		
         function ask_question($question,$keywords,$category)
@@ -92,8 +96,14 @@
             if ($stmt = $this->conn->prepare($query))
             {
                 // Substitutes questions mark by actual value; s means the value is a string and 'i' means the value is an integer.
-                $stmt->bind_param('ss',$keywords, $category);				
-               
+                $stmt->bind_param('s',$keywords, $category);
+
+                //change binding depending on what we are searching for
+                if($category != "all")
+                {
+                    $stmt->bind_param('ss',$keywords, $category)
+                }
+
                 // Executes the query
                 $stmt->execute();
 

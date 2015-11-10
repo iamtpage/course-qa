@@ -38,13 +38,23 @@
 
     <div class="row subject">
         <div class="col-xs-4">
-            <input class="form-control" type="text" placeholder="Subject"></input>
+            <input class="form-control" type="text" placeholder="Keywords" name="keywords"></input>
         </div>
     </div>
 
     <div class="row content">
         <div class="col-md-6">
-            <textarea class="form-control" rows="5" type="text" placeholder="Question"></textarea>
+            <textarea class="form-control" rows="5" type="text" placeholder="Question" name="question"></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="input-group">
+                <input type="radio" name="category" value="csi" checked>Computer Science</input>
+                <input type="radio" name="category" value="it">IT</input>
+                <input type="radio" name="category" value="other">Other</input>
+            </div>
         </div>
     </div>
 
