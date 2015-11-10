@@ -1,8 +1,8 @@
 <?php
-    define("DB_SERVER","myserver");				// server
-    define("DB_USER","myuser");					// username
-    define("DB_PASSWORD","mypassword");			// password
-    define("DB_NAME","mydatabase");				// database's name
+    define("DB_SERVER","http://moe.csci.unt.edu/phpmyadmin/");
+    define("DB_USER","15FAUSPAHCIDB7");
+    define("DB_PASSWORD","8a9b4r");
+    define("DB_NAME","15FAUSPAHCIDB7");
 	
     class data 
     {
