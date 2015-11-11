@@ -19,7 +19,7 @@
         function ask_question($question,$keywords,$category)
         {
             //Insert into the Post table with format (Question,Answer,Keywords,Category)
-            $query="INSERT INTO Post (Question,Answer,Keywords,Category) VALUES(?," ",?,?);";
+            $query="INSERT INTO Post (Question,Answer,Keywords,Category) VALUES(?,\"\",?,?);";
 
             // Prepares the SQL query for execution
             if ($stmt = $this->conn->prepare($query))						
@@ -64,7 +64,7 @@
                 //Check if success
                 if($stmt->fetch())
                 {
-                    retun true;
+                    return true;
                     $stmt->close();
                 }
 
@@ -76,8 +76,6 @@
             //Failed
             $stmt->close();
             return false;
-        }
-            }
         }
 
         function search_question($keywords, $category)
@@ -101,7 +99,7 @@
                 //change binding depending on what we are searching for
                 if($category != "all")
                 {
-                    $stmt->bind_param('ss',$keywords, $category)
+                    $stmt->bind_param('ss',$keywords, $category);
                 }
 
                 // Executes the query
