@@ -1,5 +1,8 @@
 <?php
-    define("DB_SERVER","http://moe.csci.unt.edu/phpmyadmin/");
+    //Report all errors
+    error_reporting(E_ALL);
+
+    define("DB_SERVER","localhost");
     define("DB_USER","15FAUSPAHCIDB7");
     define("DB_PASSWORD","8a9b4r");
     define("DB_NAME","15FAUSPAHCIDB7");
@@ -126,9 +129,14 @@
                 return $result_array;
             }
 
-            //Something went wrong
-            $stmt->close();
-            return false;
+            
+	    //Something went wrong
+            else
+            {
+                echo "Failed connection\n";
+                echo mysqli_error($this->conn);
+                return false;
+            }
         }
     }
 ?>

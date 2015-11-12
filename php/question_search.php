@@ -1,5 +1,9 @@
 <?php
     
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL); 
+
     // load the file with the class
     require ('dataaccess.php');
 
@@ -7,7 +11,7 @@
     $datalayer = new data();		
 
     // Get from POST parameters, the value of the variable 'keywords' and 'category' from search.html
-    $keyowrds_arg = $_POST['keywords'];
+    $keywords_arg = $_POST['keywords'];
     $category_arg = $_POST['category'];
 	
     // Call search function.
