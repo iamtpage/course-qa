@@ -24,8 +24,8 @@
         // creates a table for the results
         echo "<table border='1'>";            
         echo "    <tr>";
-        echo "        <th> Name </th>";
-        echo "        <th> Number </th>";
+        echo "        <th> Question </th>";
+        echo "        <th> Answer </th>";
         echo "    </tr>";
         
         // creates a row for each result
@@ -34,11 +34,12 @@
             //Print question out in table
             echo "    <tr>";
             echo "        <th> " . $status[$n][0] . " </th>";
+	    echo "	  <th> " . $status[$n][1] . " </th>";
             echo "    </tr>";
         }
 
         //close table
-        echo ">/table>";
+        echo "</table>";
     } 
 
     //Failure

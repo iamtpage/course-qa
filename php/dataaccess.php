@@ -1,7 +1,8 @@
 <?php
     //Report all errors
     error_reporting(E_ALL);
-
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
     define("DB_SERVER","localhost");
     define("DB_USER","15FAUSPAHCIDB7");
     define("DB_PASSWORD","8a9b4r");
@@ -16,7 +17,7 @@
         function __construct()
         {
             // database connection creation
-            $this->conn = new mysqli(DB_SERVER,DB_USER, DB_PASSWORD,DB_NAME) or die("There was a problem with the database connection");
+            $this->conn = new mysqli(DB_SERVER,DB_USER, DB_PASSWORD,DB_NAME) or die($mysqli->error);
         }
 		
         function ask_question($question,$keywords,$category)
@@ -75,7 +76,7 @@
                 $stmt->close();
                 return false;
             }
-
+ 
             //Failed
             $stmt->close();
             return false;
@@ -83,33 +84,22 @@
 
         function search_question($keywords, $category)
         {
-            // create query for all category as default
-            $query = "SELECT Question FROM Post WHERE CONTAINS(Question, ?);";
-
-            //if the category isn't all, then search for specific category
-            if($category != "all")
-            {
-                $query="SELECT Question FROM Post WHERE CONTAINS(Question, ?) AND CONTAINS(Keyword, ?);";
-                
-            }
+            // create query
+            $query="SELECT Question,Answer FROM Post WHERE Category=? AND Question LIKE '%".$keywords."%'";
 
             // Prepares the SQL query for execution	
             if ($stmt = $this->conn->prepare($query))
             {
-                // Substitutes questions mark by actual value; s means the value is a string and 'i' means the value is an integer.
-                $stmt->bind_param('s',$keywords, $category);
 
                 //change binding depending on what we are searching for
-                if($category != "all")
-                {
-                    $stmt->bind_param('ss',$keywords, $category);
-                }
+                $stmt->bind_param('s',$category);
 
                 // Executes the query
                 $stmt->execute();
-
+		
+		echo $this->conn->error;
                 // Binds the result to $results
-                $stmt->bind_result($results);
+                $stmt->bind_result($results_questions,$results_answers);
 
                 // Creates an array to store all the matches for keyword query
                 $result_array=array();
@@ -118,13 +108,13 @@
                 while ($stmt->fetch())
                 {
                     // Creates a temp array for the result value ($results)
-                    $temp=array($results);
-
+                    $temp=array($results_questions,$results_answers);
+		    
                     // Put this row into the array 'result_array'
                     array_push($result_array,$temp);
                 }
-
-                //Close connection and return result_array
+		
+		//Close connection and return result_array
                 $stmt->close();
                 return $result_array;
             }
