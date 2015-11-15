@@ -23,32 +23,34 @@
         function ask_question($question,$keywords,$category)
         {
             //Insert into the Post table with format (Question,Answer,Keywords,Category)
-            $query="INSERT INTO Post (Question,Answer,Keywords,Category) VALUES(?,\"\",?,?);";
-
+            $query="INSERT INTO Post (Question,Answer,Keyword,Category) VALUES('".$question."',' ','".$keywords."','".$category."')";
+			echo $query;
             // Prepares the SQL query for execution
             if ($stmt = $this->conn->prepare($query))						
             {
-                //Substitute ?'s for values from POST
-                $stmt->bind_param('sss',$question,$keywords,$category);
 
-                //Execute
-                $stmt->execute();
-
-                //Check if success
-                if ($stmt->fetch())
+                //Execute and Check if success
+                if ($stmt->execute())
                 {
-                    return true;
                     $stmt->close();
+					return true;
                 }
 
                 //Failed
-                $stmt->close();
-                return false;
+				else
+				{	
+					$stmt->close();
+					return false;
+				}
             }
 
-            //Failed
-            $stmt->close();
-            return false;
+			//Something went wrong
+            else
+            {
+                echo "Failed connection\n";
+                echo mysqli_error($this->conn);
+                return false;
+            }
         }
 
         function answer_question($answer,$question_id)
@@ -85,19 +87,20 @@
         function search_question($keywords, $category)
         {
             // create query
-            $query="SELECT Question,Answer FROM Post WHERE Category=? AND Question LIKE '%".$keywords."%'";
+            $query="SELECT Question,Answer FROM Post WHERE Category='".$category."' AND Question LIKE '%".$keywords."%'";
 
+			//different query for "all" so it return ALL results
+			if($category == "all")
+			{
+				$query="SELECT Question,Answer FROM Post WHERE Category IS NOT NULL AND Question LIKE '%".$keywords."%'";
+			}
             // Prepares the SQL query for execution	
             if ($stmt = $this->conn->prepare($query))
             {
 
-                //change binding depending on what we are searching for
-                $stmt->bind_param('s',$category);
-
                 // Executes the query
                 $stmt->execute();
-		
-		echo $this->conn->error;
+
                 // Binds the result to $results
                 $stmt->bind_result($results_questions,$results_answers);
 
@@ -114,13 +117,13 @@
                     array_push($result_array,$temp);
                 }
 		
-		//Close connection and return result_array
+				//Close connection and return result_array
                 $stmt->close();
                 return $result_array;
             }
 
             
-	    //Something went wrong
+			//Something went wrong
             else
             {
                 echo "Failed connection\n";
