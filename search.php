@@ -98,7 +98,7 @@
                     //Print question out in table
                     echo "    <tr>";
                     echo "        <th> " . $status[$n][0] . " </th>";
-                echo "    <th> " . $status[$n][1] . " </th>";
+                    echo "    <th> " . $status[$n][1] . " </th>";
                     echo "    </tr>";
                 }
 
@@ -111,11 +111,6 @@
             {
                 echo "<p> No records found </p>";
             }
-        }
-
-        else
-        {
-            echo "<p> Results will appear here </p>";
         }
     ?>
 </div>

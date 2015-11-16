@@ -22,12 +22,12 @@
 
 		<div class="row">
 		  <div class="col-md-6">
-		  <a href="ask.html">
+		  <a href="ask.php">
 		  	<div class="page-portal" id="ask">
 		  		<div class="icon">
-		  			<img href="ask.hml" class="portal-icon" src="images/help.svg" id="ask-icon" />
+		  			<img class="portal-icon" src="images/help.svg" id="ask-icon" />
 		  		</div>
-		  		<h1 class="portal-text">Ask.</h1>
+		  		<h1 class="portal-text">Ask</h1>
 		  	</div>
 		  	</a>
 		  </div>

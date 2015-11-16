@@ -24,7 +24,6 @@
         {
             //Insert into the Post table with format (Question,Answer,Keywords,Category)
             $query="INSERT INTO Post (Question,Answer,Keyword,Category) VALUES('".$question."',' ','".$keywords."','".$category."')";
-			echo $query;
             // Prepares the SQL query for execution
             if ($stmt = $this->conn->prepare($query))						
             {
