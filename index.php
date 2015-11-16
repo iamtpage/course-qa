@@ -38,7 +38,7 @@
 		  		<div class="icon">
 		  			<img class="portal-icon" src="images/magnify.svg"id="search-icon"/>
 		  		</div>
-		  		<h1 class="portal-text">Seach.</h1>		  		
+		  		<h1 class="portal-text">Search</h1>		  		
 		  	</div>
 		  	</a>
 		  </div>
