@@ -33,7 +33,7 @@
 		  </div>
 		  
 		  <div class="col-md-6">
-		  	<a href="search.html">
+		  	<a href="search.php">
 		  	<div class="page-portal" id="search">
 		  		<div class="icon">
 		  			<img class="portal-icon" src="images/magnify.svg"id="search-icon"/>
