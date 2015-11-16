@@ -17,7 +17,7 @@
 <nav class="navbar navbar-default navbar-fixed">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand back-icon" onclick="goBack()">
+      <a class="navbar-brand back-icon" href="index.php">
         <img class="back-icon" alt="Brand" src="images/keyboard-backspace.png">
       </a>
     </div>
@@ -28,16 +28,22 @@
     <div class="row header">
         <h2>Ask a Question</h2>
     </div>
-    <ul class="nav nav-pills center">
-      <li class="active" role="presentation"><a href="#">Computer Science</a></li>
-      <li role="presentation"><a href="#">Information Technology</a></li>
-      <li role="presentation"><a href="#">Other</a></li>
-    </ul>
 
     <br>
 	
 	<form action="ask.php" method="post">
-	
+    
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 center">
+            <div class="input-group">
+                <input type="radio" name="category" value="csi" checked>Computer Science</input>
+                <input type="radio" name="category" value="it">IT</input>
+                <input type="radio" name="category" value="other">Other</input>
+        <input type="radio" name="category" value="all">All</input>
+            </div>
+        </div>
+    </div>
+
     <div class="row subject">
         <div class="col-xs-4">
             <input type="text" name="keywords" class="form-control" placeholder="Enter keywords">
@@ -50,16 +56,7 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="input-group">
-                <input type="radio" name="category" value="csi" checked>Computer Science</input>
-                <input type="radio" name="category" value="it">IT</input>
-                <input type="radio" name="category" value="other">Other</input>
-				<input type="radio" name="category" value="all">All</input>
-            </div>
-        </div>
-    </div>
+
 
     <div class="row">
         <div class="submit-button">
@@ -74,7 +71,7 @@
         {
     
             // load the file with the class
-            require ('/php/dataaccess.php'); 
+            require ('php/dataaccess.php'); 
 
             // creates an object from data class, which also creates the database connection.       
             $datalayer = new data();            

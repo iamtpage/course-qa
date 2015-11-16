@@ -63,7 +63,7 @@
             error_reporting(E_ALL); 
 
             // load the file with the class
-            require ('/php/dataaccess.php');
+            require ('php/dataaccess.php');
 
             // creates an object from data class, which also creates the database connection.
             $datalayer = new data();        

@@ -86,12 +86,12 @@
         function search_question($keywords, $category)
         {
             // create query
-            $query="SELECT Question,Answer FROM Post WHERE Category='".$category."' AND Question LIKE '%".$keywords."%'";
+            $query="SELECT Question,Answer FROM Post WHERE Category='".$category."' AND Keyword LIKE '%".$keywords."%'";
 
 			//different query for "all" so it return ALL results
 			if($category == "all")
 			{
-				$query="SELECT Question,Answer FROM Post WHERE Category IS NOT NULL AND Question LIKE '%".$keywords."%'";
+				$query="SELECT Question,Answer FROM Post WHERE Category IS NOT NULL AND Keyword LIKE '%".$keywords."%'";
 			}
             // Prepares the SQL query for execution	
             if ($stmt = $this->conn->prepare($query))
