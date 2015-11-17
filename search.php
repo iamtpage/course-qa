@@ -102,7 +102,7 @@
             {
                 
                 // creates a table for the results
-                echo "<hr><center><table class='table'>";            
+                echo "<hr><center><table class='table' id='results'>";            
                 echo "    <tr>\n";
                 echo "        <th> Question </th>\n";
                 echo "        <th> Answer </th>\n";

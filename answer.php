@@ -32,7 +32,7 @@
 			<br>
 			<form action="answer.php" method="post">
 				<div class="row content">
-					<div class="col-md6 col-md-offset-3">
+					<div class="col-md-5">
 
 						<?php
 						
@@ -52,7 +52,8 @@
 							//success
 							// creates a dropdown of unanswered questions
 							//the value is the question id in the database
-							echo "<select name=\"question_id\">\n";            
+							echo "<label for=\"question\">Select a question</label>";
+							echo "<select class=\"form-control\" id=\"question\" name=\"question_id\" size=\"6\">\n";            
 									
 							// creates a row for each result
 							for ( $n=0; $n < count($status); $n++) 
@@ -62,10 +63,11 @@
 								}
 									
 								echo "</select>\n";
-								echo "<div class=\"row content\">\n";
-								echo "<div class=\"col-md-6\">\n";
-								echo "<textarea class=\"form-control\" rows=\"5\" type=\"text\" placeholder=\"Answer\" name=\"answer\"></textarea>\n";
-								echo "</div>\n";
+								echo "</div>";
+								// echo "<div class=\"row content\">\n";
+								echo "<div class=\"col-md-7 center\">\n";
+								echo "<textarea style=\"vertical-align:middle\" class=\"form-control\" rows=\"7\" type=\"text\" placeholder=\"Answer\" name=\"answer\"></textarea>\n";
+								// echo "</div>\n";
 								echo "</div>\n";
 						}
 						
@@ -114,7 +116,7 @@
 						}
 						
 						?>
-					</div>
+
 				</div>
 
 				<div class="row">
