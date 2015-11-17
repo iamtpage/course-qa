@@ -54,71 +54,7 @@
 
     </form>
 
-
-    <?php
-        if(isset($_POST['submit']))
-        {
-            ini_set('display_errors', 1);
-            ini_set('display_startup_errors', 1);
-            error_reporting(E_ALL); 
-
-            // load the file with the class
-            require ('php/dataaccess.php');
-
-            // creates an object from data class, which also creates the database connection.
-            $datalayer = new data();        
-
-            // Get from POST parameters, the value of the variable 'keywords' and 'category' from search.html
-            $keywords_arg = $_POST['keywords'];
-            $category_arg = $_POST['category'];
-            
-            if(empty($keywords_arg)) {
-                echo 'no query';
-                $status = false;
-            } else {
-                // Call search function.
-                $status = $datalayer->search_question($keywords_arg, $category_arg);    
-            }
-            
-            
-            //if successful
-            if ($status != false) 
-            {
-                
-                // creates a table for the results
-                echo "<hr><center><table class='table'>";            
-                echo "    <tr>";
-                echo "        <th> Question </th>";
-                echo "        <th> Answer </th>";
-                echo "    </tr>";
-                
-                // creates a row for each result
-                for ( $n=0; $n < count($status); $n++) 
-                {
-                    //Print question out in table
-                    echo "    <tr>";
-                    echo "        <th> " . $status[$n][0] . " </th>";
-                    echo "    <th> " . $status[$n][1] . " </th>";
-                    echo "    </tr>";
-                }
-
-                //close table
-                echo "</table></center>";
-            } 
-
-            //Failure
-            else 
-            {
-                echo "<p> No records found </p>";
-            }
-        }
-    ?>
-</div>
-
-<!-- PUT THIS BUTTON WHERE THERE'S AN EMPTY ANSWER CELL -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#answer">Open Modal</button>
-
-<!-- Modal -->
+    <!-- Modal -->
 <div id="answer" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg">
 
@@ -163,10 +99,105 @@
   </div>
 </div>
 
-</body>
 
-<script type="text/javascript">
-    function goBack () {
-        window.history.back();
-    }
-</script>
+
+    <?php
+	if(isset($_POST['submit']) && isset($_POST['answer']))
+	{
+		// load the file with the class
+    		require ('php/dataaccess.php');	
+
+		// creates an object from data class, which also creates the database connection.		
+		$datalayer = new data();			
+
+    		// Get from POST parameters, the value of the variable 'name'
+    		$answer_arg = $_POST['answer'];		
+    		$id_arg = $_POST['question_id'];
+	
+    		// Call ask function and pass parameters
+   	 	$status = $datalayer->answer_question($answer_arg, $id_arg);		
+	
+    		if ($status != false) 
+    		{
+		        //success
+	        	echo "<p>QUESTION ANSWERED</p>";
+		} 
+    		
+		else 
+   	 	{
+        		//failure
+		        echo "<p> There was a problem with the database. Try later. </p>";
+    		}
+	}
+	
+        if(isset($_POST['submit']))
+        {
+            ini_set('display_errors', 1);
+            ini_set('display_startup_errors', 1);
+            error_reporting(E_ALL); 
+
+            // load the file with the class
+            require ('php/dataaccess.php');
+
+            // creates an object from data class, which also creates the database connection.
+            $datalayer = new data();        
+
+            // Get from POST parameters, the value of the variable 'keywords' and 'category' from search.html
+            $keywords_arg = $_POST['keywords'];
+            $category_arg = $_POST['category'];
+            
+            if(empty($keywords_arg)) {
+                echo 'no query';
+                $status = false;
+            } else {
+                // Call search function.
+                $status = $datalayer->search_question($keywords_arg, $category_arg);    
+            }
+            
+            
+            //if successful
+            if ($status != false) 
+            {
+                
+                // creates a table for the results
+                echo "<hr><center><table class='table'>";            
+                echo "    <tr>\n";
+		echo "        <th> Post ID </th>\n";
+                echo "        <th> Question </th>\n";
+                echo "        <th> Answer </th>\n";
+                echo "    </tr>\n";
+                
+                // creates a row for each result
+                for ( $n=0; $n < count($status); $n++) 
+                {
+                    //Print question out in table
+                    echo "    <tr>\n";
+		    echo "        <td> " . $status[$n][2] . " </td>\n";
+                    echo "        <td> " . $status[$n][0] . " </td>\n";
+		    if(empty($status[$n][1]))
+		    {
+			echo "<td><button type=\"button\" class=\"btn btn-info btn-md\" data-toggle=\"modal\" data-target=\"#answer\">Open Modal</button></td>\n";
+		    }
+			
+		    else
+		    {
+                    	echo "    <td> " . $status[$n][1] . " </td>\n";
+		    }
+                    
+		    echo "    </tr>\n";
+                }
+
+                //close table
+                echo "</table></center>\n";
+            } 
+
+            //Failure
+            else 
+            {
+                echo "<p> No records found </p>";
+            }
+        }
+    ?>
+</div>
+</body>
+</html>
