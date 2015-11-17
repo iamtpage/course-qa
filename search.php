@@ -114,6 +114,55 @@
         }
     ?>
 </div>
+
+<!-- PUT THIS BUTTON WHERE THERE'S AN EMPTY ANSWER CELL -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#answer">Open Modal</button>
+
+<!-- Modal -->
+<div id="answer" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- dismiss modal -->
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
+        <div class="row content">
+            <div class="col-md-6">
+                <h2 class="modal-title">Answer</h2>
+                <h3>keyword1, keyword2, etc</h3>
+            </div>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="row content">
+            <div class="col-md-6">
+                <h4>put the question body here!</h4>
+            </div>            
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="row content">
+            <div class="col-md-6">
+                <textarea class="form-control" rows="5" type="text" placeholder="Question"></textarea>
+            </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <div class="row content">
+            <div class="col-md-12 center">
+                <button type="button" class="btn btn-success center">Submit</button>            
+            </div>
+        </div>        
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 
 <script type="text/javascript">
