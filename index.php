@@ -21,7 +21,7 @@
 		</div>
 
 		<div class="row">
-		  <div class="col-md-6">
+		  <div class="col-md-4">
 		  <a href="ask.php">
 		  	<div class="page-portal" id="ask">
 		  		<div class="icon">
@@ -32,7 +32,7 @@
 		  	</a>
 		  </div>
 		  
-		  <div class="col-md-6">
+		  <div class="col-md-4">
 		  	<a href="search.php">
 		  	<div class="page-portal" id="search">
 		  		<div class="icon">
@@ -42,9 +42,17 @@
 		  	</div>
 		  	</a>
 		  </div>
-		</div>
 
-
-		<a href="answer.php" style="position:absolute; bottom: 80px; font-size:24px; margin-left: 24px;">Question View Template</a>
+		  <div class="col-md-4">
+		  	<a href="answer.php">
+		  	<div class="page-portal" id="answer">
+		  		<div class="icon">
+		  			<img class="portal-icon" src="images/pencil.svg"id="pencil-icon"/>
+		  		</div>
+		  		<h1 class="portal-text">Answer</h1>		  		
+		  	</div>
+		  	</a>
+		  </div>
+		</div>		
 	</body>
 </html>

@@ -1,10 +1,16 @@
 html body {
 	width: 100%;
+	background: #e6e6e6;
 }
 
 a:hover {
 	text-decoration: none;
 }
+
+.jumbotron {
+	background: white;
+}
+
 .page-portal {
 	width: 80%;
 	height: 300px;
@@ -35,6 +41,12 @@ a:hover {
 	margin: 40px;
 }
 
+#pencil-icon {
+	width: 30%;
+	height: 115px;	
+	margin: 40px;
+}
+
 #ask {
 	background: #85E085;
 	transition: background .7s ease-out;
@@ -42,6 +54,11 @@ a:hover {
 
 #search {
 	background: #6699FF;
+	transition: background .7s ease-out;
+}
+
+#answer {
+	background: #ff6666;
 	transition: background .7s ease-out;
 }
 

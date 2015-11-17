@@ -22,6 +22,7 @@
 		
 		function list_unanswered_questions()
 		{
+			//list all rows with nothing in answer field
 			$query="SELECT Question,Post_ID FROM Post WHERE Answer=''";
 			
 			if($stmt = $this->conn->prepare($query))
@@ -53,7 +54,8 @@
         {
             //Insert into the Post table with format (Question,Answer,Keywords,Category)
             $query="INSERT INTO Post (Question,Answer,Keyword,Category) VALUES('".$question."',' ','".$keywords."','".$category."')";
-            // Prepares the SQL query for execution
+            
+			// Prepares the SQL query for execution
             if ($stmt = $this->conn->prepare($query))						
             {
 
@@ -87,6 +89,7 @@
             ini_set('display_startup_errors', 1);
             error_reporting(E_ALL);
 			
+			//select question by post id
 			$query = "SELECT Question,Answer FROM Post WHERE Post_ID='".$question_id."'";
 			
 			if($stmt = $this->conn->prepare($query))
@@ -136,7 +139,7 @@
 				{
 					//failed
 					echo $stmt->error;
-					return "dicks";
+					return false;
 				}
             }
 		}
