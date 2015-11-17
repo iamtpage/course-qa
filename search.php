@@ -102,10 +102,10 @@
             {
                 
                 // creates a table for the results
-                echo "<hr><center><table class='table' id='results'>";            
+                echo "<hr><center><table class='table' id='results'>\n";            
                 echo "    <tr>\n";
-                echo "        <th> Question </th>\n";
-                echo "        <th> Answer </th>\n";
+                echo "        <th>Question</th>\n";
+                echo "        <th>Answer</th>\n";
                 echo "    </tr>\n";
                 
                 // creates a row for each result
@@ -113,8 +113,8 @@
                 {
                     //Print question out in table
                     echo "    <tr>\n";
-                    echo "        <td> " . $status[$n][0] . " </td>\n";
-					echo "    	  <td> " . $status[$n][1] . " </td>\n";                    
+                    echo "        <td>".htmlspecialchars($status[$n][0])."</td>\n";
+					echo "    	  <td>".htmlspecialchars($status[$n][1])."</td>\n";                    
 					echo "    </tr>\n";
                 }
 
@@ -125,7 +125,7 @@
             //Failure
             else 
             {
-                echo "<p> No records found </p>";
+                echo "<p> No records found </p>\n";
             }
         }
     ?>

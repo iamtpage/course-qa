@@ -59,7 +59,7 @@
 							for ( $n=0; $n < count($status); $n++) 
 								{
 									//Print question out in table
-									echo "<option value=\"".$status[$n][1]."\">".$status[$n][0]."</option>\n";
+									echo "<option value=\"".htmlspecialchars($status[$n][1])."\">".htmlspecialchars($status[$n][0])."</option>\n";
 								}
 									
 								echo "</select>\n";
@@ -73,7 +73,7 @@
 						
 						else
 						{
-							echo "<p> GTTTTThere was a problem with the database. Try later. </p>\n";
+							echo "<p> There was a problem with the database. Try later. </p>\n";
 						}
 						
 						if(isset($_POST['submit']) && isset($_POST['answer']))
@@ -103,8 +103,8 @@
 									echo "        <th> Answer </th>\n";
 									echo "    </tr>\n";
 									echo "	  <tr>\n";
-									echo "		  <th>".$status[0][0]."</th>\n";
-									echo "		  <th>".$status[0][1]."</th>\n";
+									echo "		  <th>".htmlspecialchars($status[0][0])."</th>\n";
+									echo "		  <th>".htmlspecialchars($status[0][1])."</th>\n";
 								}
 							}
 							

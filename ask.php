@@ -97,23 +97,23 @@
             {
                 //success
                 // creates a table for the results
-                echo "<hr><center><table class='table'>";            
-                echo "    <tr>";
-                echo "        <th> Question Asked: </th>";
-                echo "        <th> Keyword(s):</th>";
-                echo "        <th> Category:</th>";
-                echo "    </tr>";
-                echo "    <tr>";
-                echo "        <th> " . $question_arg . " </th>";
-                echo "        <th> " . $keyword_arg . " </th>";
-                echo "        <th> " . $category_arg . " </th>";
-                echo "    </tr>";
-                echo "</table></center>";
+                echo "<hr><center><table class='table'>\n";            
+                echo "    <tr>\n";
+                echo "        <th>Question Asked:</th>\n";
+                echo "        <th>Keyword(s):</th>\n";
+                echo "        <th>Category:</th>\n";
+                echo "    </tr>\n";
+                echo "    <tr>\n";
+                echo "        <th>".htmlspecialchars($question_arg)."</th>\n";
+                echo "        <th>".htmlspecialchars($keyword_arg)."</th>\n";
+                echo "        <th>".htmlspecialchars($category_arg)."</th>\n";
+                echo "    </tr>\n";
+                echo "</table></center>\n";
             } 
             else 
             {
                 //failure
-                echo "<p> There was a problem with the database. Try later. </p>";
+                echo "<p> There was a problem with the database. Try later. </p>\n";
             }
         }
 	?>
