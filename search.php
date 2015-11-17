@@ -162,7 +162,7 @@
                 // creates a table for the results
                 echo "<hr><center><table class='table'>";            
                 echo "    <tr>\n";
-		echo "        <th> Post ID </th>\n";
+				echo "        <th> Post ID </th>\n";
                 echo "        <th> Question </th>\n";
                 echo "        <th> Answer </th>\n";
                 echo "    </tr>\n";
@@ -172,19 +172,20 @@
                 {
                     //Print question out in table
                     echo "    <tr>\n";
-		    echo "        <td> " . $status[$n][2] . " </td>\n";
+					echo "        <td> " . $status[$n][2] . " </td>\n";
                     echo "        <td> " . $status[$n][0] . " </td>\n";
-		    if(empty($status[$n][1]))
-		    {
-			echo "<td><button type=\"button\" class=\"btn btn-info btn-md\" data-toggle=\"modal\" data-target=\"#answer\">Open Modal</button></td>\n";
-		    }
+					
+					if(empty($status[$n][1]))
+					{
+						echo "<td><button type=\"button\" class=\"btn btn-info btn-md\" data-toggle=\"modal\" data-target=\"#answer\">Open Modal</button></td>\n";
+					}
 			
-		    else
-		    {
+					else
+					{
                     	echo "    <td> " . $status[$n][1] . " </td>\n";
-		    }
+					}
                     
-		    echo "    </tr>\n";
+					echo "    </tr>\n";
                 }
 
                 //close table

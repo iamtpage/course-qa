@@ -45,6 +45,6 @@
 		</div>
 
 
-		<a href="question-view.html" style="position:absolute; bottom: 80px; font-size:24px; margin-left: 24px;">Question View Template</a>
+		<a href="answer.php" style="position:absolute; bottom: 80px; font-size:24px; margin-left: 24px;">Question View Template</a>
 	</body>
 </html>
