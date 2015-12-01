@@ -4,9 +4,9 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     define("DB_SERVER","localhost");
-    define("DB_USER","15FAUSPAHCIDB7");
-    define("DB_PASSWORD","8a9b4r");
-    define("DB_NAME","15FAUSPAHCIDB7");
+    define("DB_USER","ENTER_USERNAME_HERE");
+    define("DB_PASSWORD","ENTER_PASSWORD_HERE");
+    define("DB_NAME","ENTER_DATABASE_NAME_HERE");
 	
     class data 
     {
